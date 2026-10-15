@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0f17" />
+  <title>My Office — Archivio Verificato & Fact-Checked</title>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="header-top">
+        <div>
+          <h1 class="brand-title">
+            <span>🛡️ My Office — Hub Verificato</span>
+          </h1>
+          <p class="brand-subtitle">
+            Archivio interattivo dei soli post verificati (Protocollo Nexus) dalla chat WhatsApp personale, con link sbloccati e compatibilità PC / Smartphone.
+          </p>
+        </div>
+
+        <div class="sync-pills">
+          <span class="sync-pill">
+            <span class="status-dot"></span>
+            Scansione Nuovi Post: <strong id="metaLastScan">2026-10-15</strong> (Ogni Lun 09:00)
+          </span>
+          <span class="sync-pill">
+            🔍 Audit Globale Mensile: <strong id="metaLastAudit">2026-10-15</strong> (Ogni 1° del mese)
+          </span>
+          <span class="sync-pill" title="Esclusi #1 e #33 (100-208€/gg falsi), #14 (misticismo quantistico), #20 (trading non dimostrato), #5 e #31 (rimossi)">
+            🚫 <strong>6</strong> Bufale / Post Rimossi Filtrati
+          </span>
+        </div>
+      </div>
+
+      <nav class="section-tabs" aria-label="Sezioni Archivio">
+        <button class="section-tab active" data-section="main" type="button">
+          🛠️ Tool, Siti, Prompt &amp; Ricette Verificate
+          <span class="tab-count" id="countMain">19</span>
+        </button>
+        <button class="section-tab" data-section="entertainment" type="button">
+          🎬 Intrattenimento, Film, Anime &amp; Curiosità
+          <span class="tab-count" id="countEntertainment">3</span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="filters-panel" aria-label="Filtri di ricerca">
+      <div class="search-row">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔎</span>
+          <input
+            type="search"
+            id="searchInput"
+            class="search-input"
+            placeholder="Cerca tool, repository GitHub, prompt, sito web, ricetta o tag..."
+          />
+        </div>
+        <button id="resetFiltersBtn" class="reset-btn" type="button">
+          Resetta Filtri
+        </button>
+      </div>
+
+      <div class="filter-selects">
+        <div class="filter-group">
+          <label class="filter-label" for="categoryFilter">Categoria</label>
+          <select id="categoryFilter" class="filter-select">
+            <option value="all">Tutte le categorie</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="deviceFilter">Compatibilità Dispositivo</label>
+          <select id="deviceFilter" class="filter-select">
+            <option value="all">💻 + 📱 Tutti i Dispositivi</option>
+            <option value="Smartphone">📱 Usabile anche da Smartphone</option>
+            <option value="PC">💻 Usabile su PC (Windows/Mac/Linux)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label class="filter-label" for="accessFilter">Modalità Software / Sito</label>
+          <select id="accessFilter" class="filter-select">
+            <option value="all">Tutte le Modalità (Online &amp; Locale)</option>
+            <option value="online">🌐 Solo Online (Browser / Cloud / Web App)</option>
+            <option value="local">⚙️ Locale / Installabile / Self-Hosted</option>
+            <option value="hybrid">🔄 Ibrido (Cloud + Locale / CLI)</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <div class="results-bar">
+      <span id="resultsCount">Caricamento archivio...</span>
+      <span>Tutti i link diretti sono già sbloccati (nessun commento richiesto sui social)</span>
+    </div>
+
+    <main id="cardsContainer" class="cards-grid"></main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

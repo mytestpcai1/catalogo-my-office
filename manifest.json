@@ -1,0 +1,9 @@
+{
+  "name": "My Office — Archivio Verificato",
+  "short_name": "My Office",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#3b82f6",
+  "description": "Catalogo interattivo dei contenuti verificati dalla chat WhatsApp My Office."
+}
