@@ -10,9 +10,17 @@ const state = {
 
 async function loadCatalog() {
   try {
-    const res = await fetch('./data/catalog.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
+    let data = null;
+    if (window.location.protocol !== 'file:') {
+      try {
+        const res = await fetch('./data/catalog.json', { cache: 'no-store' });
+        if (res.ok) data = await res.json();
+      } catch (_) {}
+    }
+    if (!data && window.CATALOG_FALLBACK) {
+      data = window.CATALOG_FALLBACK;
+    }
+    if (!data) throw new Error('Catalogo non trovato');
     state.items = data.items || [];
     state.metadata = data.metadata || {};
     renderMetadata();
